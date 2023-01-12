@@ -32,7 +32,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.Change-book {
+  background-color: rebeccapurple;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: white;
+  padding: 10px;
+  margin: 10px;
 }
