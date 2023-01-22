@@ -28,16 +28,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .Change-book {
   background-color: rebeccapurple;
   border: 1px solid black;
@@ -45,4 +35,19 @@
   color: white;
   padding: 10px;
   margin: 10px;
+}
+
+.nav-bar ul li {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar a:active,
+a:hover {
+  color: orange;
 }
