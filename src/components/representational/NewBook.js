@@ -1,4 +1,4 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 
 class NewBook extends Component {
     constructor(props) {
@@ -8,9 +8,8 @@ class NewBook extends Component {
             writer: "",
             description: ""
         }
-        this.bookName = createRef();
-        this.writer = createRef();
-        this.description = createRef();
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange = event => {
@@ -19,9 +18,11 @@ class NewBook extends Component {
         this.setState({
             [name]: value
         });
+        console.log(this.state);
     }
 
     handleSubmit = event => {
+        console.log(this.state);
         event.preventDefault();
     }
 
@@ -34,13 +35,13 @@ class NewBook extends Component {
                     <br />
                     <input type="text" name="bookName"
                         value={this.state.bookName}
-                        onChange={this.handleInputChange} />
+                        onChange={event => this.handleInputChange(event)} />
                     <br />
                     <label>Writer</label>
                     <br />
                     <input type="text" name="writer"
                         value={this.state.writer}
-                        onChange={this.handleInputChange} />
+                        onChange={event => this.handleInputChange(event)} />
                     <br />
                     <label>Description</label>
                     <br />
