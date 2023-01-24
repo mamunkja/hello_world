@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 
 class NewBook extends Component {
     constructor(props) {
@@ -8,8 +8,10 @@ class NewBook extends Component {
             writer: "",
             description: ""
         }
+        this.bookName = createRef();
+        this.writer = createRef();
+        this.description = createRef();
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleInputChange = event => {
@@ -18,11 +20,12 @@ class NewBook extends Component {
         this.setState({
             [name]: value
         });
-        console.log(this.state);
     }
 
-    handleSubmit = event => {
-        console.log(this.state);
+    handleSubmit = (event) => {
+        console.log(this.bookName.current.value);
+        console.log(this.writer.current.value);
+        console.log(this.description.current.value);
         event.preventDefault();
     }
 
@@ -34,20 +37,17 @@ class NewBook extends Component {
                     <label>Book Name</label>
                     <br />
                     <input type="text" name="bookName"
-                        value={this.state.bookName}
-                        onChange={event => this.handleInputChange(event)} />
+                        ref={this.bookName} />
                     <br />
                     <label>Writer</label>
                     <br />
                     <input type="text" name="writer"
-                        value={this.state.writer}
-                        onChange={event => this.handleInputChange(event)} />
+                        ref={this.writer} />
                     <br />
                     <label>Description</label>
                     <br />
                     <textarea type="text" name="description"
-                        value={this.state.description}
-                        onChange={event => this.handleInputChange(event)} />
+                        ref={this.description} />
                     <br />
                     <input type="submit" value="Submit" />
                 </form>
